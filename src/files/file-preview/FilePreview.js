@@ -71,10 +71,18 @@ class Preview extends React.Component {
           return cantPreview
         }
 
+        const edit = ()=>{
+          let path = this.props.path
+          path = path.toString().substr(6)
+          window.open('http://172.16.0.66:5091/#'+path, "_blank", "scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes");
+        }
         return (
-          <pre className={`${className} overflow-auto monospace`}>
-            {this.state.content}
-          </pre>
+          <div>
+            <pre className={`${className} overflow-auto monospace`}>
+              {this.state.content}
+            </pre>
+            <button onClick={edit}>Edit</button>
+          </div>
         )
       }
     }
